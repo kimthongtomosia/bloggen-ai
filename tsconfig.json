@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2019",
+    "sourceMap": true,
+    "outDir": "dist/src",
+    "baseUrl": "./",
+    "incremental": true,
+    "paths": {
+      "@app": ["src"],
+      "@app/*": ["src/*"],
+      "@test/*": ["test/*"]
+    }
+  }
+}
