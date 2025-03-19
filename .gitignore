@@ -3,6 +3,7 @@
 /node_modules
 documentation
 /.vscode
+.env
 
 # Logs
 logs
