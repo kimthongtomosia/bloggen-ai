@@ -35,8 +35,8 @@ export function scheduleCrawl(cronExpression: string, csvPath: string): void {
 
       // Kiểm tra kết quả sau khi xử lý từng URL
       results.forEach((result) => {
-        if (result.error) {
-          console.error(`Lỗi khi xử lý URL: ${result.url}. Lỗi: ${result.error}`);
+        if ('error' in result) {
+          console.error(`Lỗi khi xử lý URL: ${result.error}`);
         } else {
           console.log(`Đã xử lý thành công URL: ${result.url}`);
         }

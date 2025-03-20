@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
-  "type": "module",
+  "type": "commonjs",
   "main": "src/app.ts",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/cli/index.js",
+    "start": "node src/cli/index.ts",
     "cli": "ts-node --transpile-only src/cli/index.ts",
     "prettier:check": "prettier --check ./**/*.{ts,js,json,*rc}",
     "format": "prettier --write \"./**/*.{ts,js,json,*rc}\" \"src/tests/**/*.ts\"",
@@ -16,7 +16,7 @@
     "precommit": "lint-staged",
     "prepush": "",
     "prebuild": "rimraf dist",
-    "dev": "nodemon --loader ts-node src/app.ts",
+    "dev": "ts-node src/app.ts",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
@@ -56,12 +56,16 @@
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.0",
+    "@types/readable-stream": "^4.0.18",
     "axios": "^1.8.3",
     "csv-parser": "^3.2.0",
     "node-cron": "^3.0.3",
-    "puppeteer": "^24.4.0"
+    "pg": "^8.14.1",
+    "puppeteer": "^24.4.0",
+    "typeorm": "^0.3.21",
+    "typescript-validators": "^1.0.2"
   },
   "bin": {
-    "bloggen": "ts-node ./src/cli/index.ts"
+    "bloggen": "node src/cli/index.ts"
   }
 }

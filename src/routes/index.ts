@@ -1,19 +1,18 @@
-// const { Pool } = require('pg');
+import express from 'express';
 
-// // Tạo pool kết nối đến PostgreSQL, sử dụng connection string từ biến môi trường
-// const pool = new Pool({
-//   connectionString: process.env.DATABASE_URL
-// });
+const router = express.Router();
+import blogController from '../controllers/blog.controller';
+import { categoryController } from '../controllers/category.controller';
 
-// // Lắng nghe sự kiện khi kết nối thành công
-// pool.on('connect', () => {
-//   console.log('Đã kết nối đến PostgreSQL');
-// });
+// Blog Routes
+router.post('/blogs/create', blogController.createBlog);
+router.get('/blogs', blogController.getBlogs);
+router.get('/blogs/export', blogController.exportBlogs);
 
-// // Lắng nghe sự kiện lỗi trong quá trình kết nối
-// pool.on('error', (err) => {
-//   console.error('Lỗi kết nối PostgreSQL:', err);
-// });
+// Category Routes
+router.post('/categories', categoryController.createCategory);
+router.get('/categories', categoryController.getCategories);
+router.put('/categories/:id', categoryController.updateCategory);
+router.delete('/categories/:id', categoryController.deleteCategory);
 
-// // Xuất pool để sử dụng trong các module khác
-// module.exports = pool;
+module.exports = router;
